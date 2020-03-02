@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../../css/todo.css">
+</head>
+
+<body>
+    <!-- main container of app -->
+    <div class="todo-container disabled">
+
+        <div class="description">
+            <p>Todo Lista</p>
+            <span>W oparciu o local storage!</span>
+        </div>
+        <!-- Section your tasks! -->
+        <section id="yourTasks">
+            <ul class="tasksContainer">
+
+                <!-- <li class="taskContainer">
+                    <span></span>
+                    <div class="taskInfo">
+                        <p>Tytuł zadania!</p>
+                        <p>Krótki opis</p>
+                        <p>Czas do wykonania: 00:00:00</p>
+                    </div>
+                    <button>X</button>
+                </li> -->
+
+
+            </ul>
+        </section>
+
+
+        <button class="addTaskButton" id="addTaskBtn">Add task!</button>
+
+    </div>
+    <!-- form container visible on click -->
+    <div class="form-container">
+        <div class="sectionDescription">
+            <p>Dodaj swój własny task!</p>
+        </div>
+        <form class="taskForm">
+
+            <div>
+                <p>Nazwa:</p>
+                <input type="text" id="taskName">
+            </div>
+            <div>
+                <p>Krótki opis:</p>
+                <input type="text" id="taskDescription">
+            </div>
+            <div>
+                <p>Data do wykonania</p>
+                <input type="date" id="taskDate">
+            </div>
+            <div>
+                <p>Czas:</p>
+                <input type="time" id="taskTime">
+            </div>
+            <div>
+                <button id="cancelBtn">Anuluj!</button>
+                <button id="acceptBtn">Zatwierdź!</button>
+            </div>
+        </form>
+    </div>
+    <script src="../../script/todo.js"></script>
+</body>
+
+</html>
