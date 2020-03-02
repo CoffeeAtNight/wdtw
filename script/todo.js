@@ -29,10 +29,18 @@ const getFreshData = () => {
     return data;
 }
 
+//This function deletes task by id
+const deleteTask = id => {
+    let tasks = getFreshData();
+    let tasksWithoutDeleted = tasks.taskList.filter(item => item.id != id);
+    tasks.taskList = tasksWithoutDeleted;
+    localStorage.setItem("pwToDo", JSON.stringify(tasks));
+    renderTasks(getFreshData().taskList);
+}
 
 // This function render new list of tasks every time when it need
 const renderTasks = (taskList) => {
-    console.log(taskList)
+    taskContainer.innerHTML = "";
     taskList.forEach(item => {
         let li = document.createElement('li');
         li.classList.add('taskContainer');
@@ -56,6 +64,9 @@ const renderTasks = (taskList) => {
 
         let button = document.createElement('button');
         button.innerText = "x";
+        button.addEventListener('click', () => {
+            deleteTask(item.id);
+        })
         li.appendChild(button);
 
         taskContainer.appendChild(li);
@@ -63,6 +74,8 @@ const renderTasks = (taskList) => {
 
     })
 }
+
+
 
 //Clear form fields 
 let clearFormFields = () => {
@@ -114,6 +127,10 @@ let showAndHide = (elementToHide, elementToShow) => {
     elementToShow.classList.remove('disabled');
 }
 
+
+
+// EVENTS ETC.
+
 //Handle open form operation
 addTaskBtn.addEventListener('click', () => {
     setDate();
@@ -126,10 +143,23 @@ cancelBtn.addEventListener('click', (ev) => {
     clearFormFields();
     showAndHide(formContainer, toDoList);
 })
+//Validation form data
+const validateUserData = bool => {
+    const textError = document.getElementById('errorInfo');
+    if (bool) {
+        taskName.classList.add('error');
+        textError.style.display = "block";
+    }
+    else {
+        taskName.classList.remove('error');
+        textError.style.display = "none";
+    }
+}
 
 //Handle add new task to list operation
 acceptBtn.addEventListener('click', (ev) => {
     ev.preventDefault();
+    validateUserData(false);
     let tasks = getFreshData();
     tasks.maxId += 1;
     let id = tasks.maxId;
@@ -138,22 +168,29 @@ acceptBtn.addEventListener('click', (ev) => {
     let description = taskDescription.value;
     let date = taskDate.value;
     let time = taskTime.value;
+    //Form data validation
+    if (name) {
+        let freshTask = {
+            id,
+            name,
+            description,
+            date,
+            time
+        }
 
-    let freshTask = {
-        id,
-        name,
-        description,
-        date,
-        time
+        tasks.taskList.push(freshTask);
+
+        localStorage.setItem("pwToDo", JSON.stringify(tasks));
+        clearFormFields();
+        showAndHide(formContainer, toDoList);
+        tasks = getFreshData();
+        renderTasks(tasks.taskList)
+    } else {
+        validateUserData(true);
     }
 
-    tasks.taskList.push(freshTask);
-
-    localStorage.setItem("pwToDo", JSON.stringify(tasks));
-    clearFormFields();
-    showAndHide(formContainer, toDoList);
-    tasks = getFreshData();
-    renderTasks(tasks.taskList)
 })
 
 
+//HERE INITIAL RENDER PROCEDURES
+renderTasks(getFreshData().taskList);

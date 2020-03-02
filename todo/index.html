@@ -10,7 +10,7 @@
 
 <body>
     <!-- main container of app -->
-    <div class="todo-container disabled">
+    <div class="todo-container ">
 
         <div class="description">
             <p>Todo Lista</p>
@@ -19,7 +19,7 @@
         <!-- Section your tasks! -->
         <section id="yourTasks">
             <ul class="tasksContainer">
-
+                <!-- HERE RENDER TASKS (<li></li>) -->
                 <!-- <li class="taskContainer">
                     <span></span>
                     <div class="taskInfo">
@@ -29,8 +29,6 @@
                     </div>
                     <button>X</button>
                 </li> -->
-
-
             </ul>
         </section>
 
@@ -39,28 +37,32 @@
 
     </div>
     <!-- form container visible on click -->
-    <div class="form-container">
+    <div class="form-container disabled">
         <div class="sectionDescription">
             <p>Dodaj swój własny task!</p>
         </div>
         <form class="taskForm">
 
-            <div>
+            <div class="inputContainer">
                 <p>Nazwa:</p>
-                <input type="text" id="taskName">
+                <input type="text" id="taskName" autocomplete="off">
+                <p id="errorInfo" class="errorInfo">Pole nazwa nie może być puste i ma zawierać minimum 3 znaki!</p>
             </div>
-            <div>
+            <div class="inputContainer">
                 <p>Krótki opis:</p>
-                <input type="text" id="taskDescription">
+                <input type="text" id="taskDescription" autocomplete="off">
             </div>
-            <div>
-                <p>Data do wykonania</p>
-                <input type="date" id="taskDate">
+            <div class="dateInputContainer">
+                <div>
+                    <p>Data do wykonania</p>
+                    <input type="date" id="taskDate">
+                </div>
+                <div>
+                    <p>Czas:</p>
+                    <input type="time" id="taskTime">
+                </div>
             </div>
-            <div>
-                <p>Czas:</p>
-                <input type="time" id="taskTime">
-            </div>
+
             <div>
                 <button id="cancelBtn">Anuluj!</button>
                 <button id="acceptBtn">Zatwierdź!</button>

@@ -29,7 +29,9 @@ body {
   transition: 0.3s;
 }
 .disabled {
+  display: none;
   opacity: 0;
+  z-index: -1;
 }
 
 .description {
@@ -58,10 +60,19 @@ body {
   border-radius: 10px;
   overflow: hidden;
   box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.455);
+  transition: 0.3s;
 }
 
 .taskContainer .taskInfo {
   padding: 3px;
+  min-height: 100px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.taskContainer:hover {
+  background-color: rgb(219, 217, 217);
 }
 
 .taskContainer button {
@@ -105,6 +116,7 @@ body {
   position: absolute;
   top: 50%;
   left: 50%;
+  width: 90%;
   transform: translate(-50%, -50%);
   background-color: rgba(5, 5, 5, 0.442);
   color: white;
@@ -112,6 +124,15 @@ body {
 }
 
 .taskForm {
+}
+
+.inputContainer {
+  margin-top: 20px;
+}
+
+.dateInputContainer {
+  display: flex;
+  justify-content: center;
 }
 
 .sectionDescription p {
@@ -125,8 +146,24 @@ body {
   transform: scale(1);
   transition: 0.2s;
   color: white;
+  width: 100%;
+  padding: 10px 2px;
+}
+
+.taskForm input.error {
+  border-bottom: solid 1px red;
+}
+.taskForm p {
+  display: none;
 }
 
 .taskForm input:focus {
   transform: scale(1.1);
+  outline: 0;
+}
+
+.errorInfo {
+  color: red;
+  font-weight: bold;
+  font-size: 15px;
 }
