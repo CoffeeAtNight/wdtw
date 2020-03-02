@@ -5,10 +5,31 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="../css/navi.css">
     <link rel="stylesheet" href="../../css/todo.css">
 </head>
 
 <body>
+    <nav class="navigation">
+        <ul class="menu">
+            <li><a href="./index.html">Strona główna</a></li>
+            <li><a href="./todo.html">ToDoApp JS!</a></li>
+            <li><a href="./contact.html"> Kontakt</a> </li>
+            <li> <a href="#">Sprawdź deweloperski kubek!</a> </li>
+        </ul>
+        <div class="whiteLine">
+            <div class="logoSection">
+                <div class="logoContainer">
+                    <img src="./assets/logo.png" alt="logo of company">
+                </div>
+                <p>WójcikWebStudio</p>
+            </div>
+            <div>
+                <button class="openMenu"><img src="./assets/svg/menu.svg"></button>
+            </div>
+        </div>
+
+    </nav>
     <!-- main container of app -->
     <div class="todo-container ">
 
@@ -69,7 +90,8 @@
             </div>
         </form>
     </div>
-    <script src="../../script/todo.js"></script>
+    <script src="./script/todo.js"></script>
+    <script src="./script/handleNav.js"></script>
 </body>
 
 </html>
