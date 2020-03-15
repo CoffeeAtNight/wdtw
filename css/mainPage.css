@@ -18,6 +18,27 @@ video {
   min-width: 100%;
 }
 
+/* HEADER TEXT */
+
+.headerText {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  font-weight: bold;
+  text-shadow: 2px 2px 2px #000000;
+  font-size: 30px;
+  width: 100%;
+}
+
+.headerText p {
+  text-align: center;
+  font-family: "Kavivanar", cursive;
+  font-size: 30px;
+  letter-spacing: 5px;
+}
+
 @media (min-width: 600px) {
   video {
   }
