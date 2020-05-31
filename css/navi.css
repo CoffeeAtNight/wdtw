@@ -1,5 +1,6 @@
 @import "reset.css";
 
+/*  NAWIGACJA MOBILNA.  */
 .navigation {
   position: fixed;
   top: 0;
@@ -16,6 +17,7 @@
 .logoSection {
   height: 100%;
   display: flex;
+  margin-left: 5px;
   justify-content: center;
   align-items: center;
   background-color: white;
@@ -24,6 +26,7 @@
 .logoSection p {
   font-weight: bold;
   margin-left: 5px;
+  font-size: 20px;
 }
 
 .logoContainer {
@@ -62,11 +65,12 @@
   height: 70px;
   list-style: none;
   border-bottom: solid 1px rgba(128, 128, 128, 0.171);
+  padding-left: 10px;
 }
 
 .menu li a {
   display: flex;
-  justify-content: center;
+  justify-content: left;
   align-items: center;
   text-decoration: none;
   color: rgba(0, 0, 0, 0.801);
@@ -74,7 +78,122 @@
   height: 100%;
   width: 100%;
 }
+.menu li a p {
+  margin-left: 10px;
+}
 
-.menu li a:active {
-  color: red;
+.menu li a.active {
+  color: goldenrod;
+}
+
+.openMenu {
+  background-color: transparent;
+  border: none;
+}
+
+.openMenu img {
+  height: 30px;
+  opacity: 0.8;
+}
+
+.navigationDesktop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: white;
+  z-index: 2;
+  width: 100%;
+}
+
+/* NAWIGACJA DESKTOP */
+
+.navigationDesktop {
+  display: none;
+}
+
+.desktop .logoSection {
+  height: 70px;
+  margin-top: 10px;
+
+  border-bottom: solid 1px gainsboro;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.desktop .logoSection p {
+  font-size: 35px;
+  margin-left: 15px;
+  letter-spacing: 2px;
+}
+
+.navigationDesktop .hrefSection ul {
+  display: flex;
+  list-style: none;
+  justify-content: center;
+}
+
+.navigationDesktop .hrefSection ul li {
+  text-transform: uppercase;
+  font-weight: bold;
+  /* margin-right: 10px; */
+  height: 100%;
+  border-right: solid 1px gainsboro;
+  padding-right: 10px;
+  padding-left: 10px;
+
+  transition: 0.3s;
+  background-color: white;
+}
+
+.navigationDesktop .hrefSection ul li a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  text-decoration: none;
+  color: gray;
+  font-size: 20px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  transform: scale(1);
+  transition: 0.2s;
+}
+.navigationDesktop .hrefSection ul li:hover a {
+  color: white;
+  transform: scale(1.05);
+}
+
+.navigationDesktop .hrefSection ul li a svg {
+  transform: rotate(0deg);
+  transition: 0.2s;
+}
+.navigationDesktop .hrefSection ul li:hover a svg {
+  transform: rotate(60deg);
+}
+
+.navigationDesktop .hrefSection ul li:hover a.active {
+  color: white;
+}
+
+.navigationDesktop .hrefSection ul li:hover {
+  background-color: goldenrod;
+}
+.navigationDesktop .hrefSection ul li a.active {
+  color: goldenrod;
+}
+
+.navigationDesktop .hrefSection ul li a p {
+  margin-left: 5px;
+}
+
+@media (min-width: 768px) {
+  .navigation {
+    display: none;
+  }
+}
+
+@media (min-width: 769px) {
+  .navigationDesktop {
+    display: block;
+  }
 }
