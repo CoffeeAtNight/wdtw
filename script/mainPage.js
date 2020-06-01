@@ -7,6 +7,8 @@ let techno2 = document.getElementById('techno2');
 let techno3 = document.getElementById('techno3');
 let techno4 = document.getElementById('techno4');
 
+let header = document.querySelector('header');
+
 
 window.addEventListener('scroll', () => {
     // pokazuje sekcje o nas
@@ -24,5 +26,14 @@ window.addEventListener('scroll', () => {
         techno3.classList.add('active');
     if (window.scrollY > techno4.offsetTop + techno4.offsetHeight * 0.5)
         techno4.classList.add('active');
+
+    if (scrollY > 10) {
+        let scrollInPercent = (100 - ((window.scrollY / window.innerHeight) * 100)) / 100
+
+
+
+        header.style.opacity = scrollInPercent
+    }
+
 });
 

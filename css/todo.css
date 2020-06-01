@@ -153,7 +153,7 @@ body {
 .taskForm input.error {
   border-bottom: solid 1px red;
 }
-.taskForm p {
+.taskForm p.errorInfo {
   display: none;
 }
 
@@ -166,4 +166,15 @@ body {
   color: red;
   font-weight: bold;
   font-size: 15px;
+}
+
+@media (min-width: 769px) {
+  .todo-container {
+    width: 50%;
+  }
+  .form-container {
+    width: 50%;
+    padding-right: 20px;
+    padding-left: 20px;
+  }
 }
