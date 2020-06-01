@@ -51,7 +51,7 @@ main {
   z-index: 2;
   background-color: white;
   width: 100%;
-  background-color: rgb(245, 234, 234);
+  /* background-color: rgb(245, 245, 245); */
 }
 
 h3 {
@@ -62,7 +62,7 @@ h3 {
   margin-top: 20px;
   margin-bottom: 20px;
   padding-left: 10px;
-  color: gray;
+  color: rgb(32, 32, 32);
 }
 
 .articlesSec {
@@ -74,6 +74,10 @@ h3 {
 
 .articlesSec article {
   width: 100%;
+  -webkit-box-shadow: 5px 6px 15px 3px rgba(0, 0, 0, 0.45);
+  -moz-box-shadow: 5px 6px 15px 3px rgba(0, 0, 0, 0.45);
+  box-shadow: 5px 6px 15px 3px rgba(0, 0, 0, 0.45);
+  margin-bottom: 20px;
 }
 .articlesSec article h3 {
   margin-bottom: 5px;
@@ -97,11 +101,60 @@ h3 {
   width: 100%;
 }
 
+/* sekcja technologie */
+
+.technologies div {
+  background-color: white;
+  /* margin-top: 20px; */
+  padding-top: 20px;
+  padding-bottom: 20px;
+  padding-right: 30px;
+  padding-left: 30px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.technologies div .imageWrapper {
+  width: 100%;
+}
+
+.technologies div .imageWrapper img {
+  width: 100%;
+}
+
+.technologies div p {
+  text-align: center;
+  font-weight: bolder;
+  font-size: 25px;
+}
+
 @media (min-width: 769px) {
   .articlesSec {
     flex-direction: row;
     justify-content: space-around;
     padding: 0px 100px;
+    opacity: 0;
+    transition: 0.3s;
+  }
+
+  .aboutLeft {
+    transform: translateX(-300%);
+    transition: 0.5s;
+  }
+
+  .aboutRight {
+    transform: translateX(300%);
+    transition: 0.5s;
+  }
+
+  .aboutLeft.active,
+  .aboutRight.active {
+    transform: translate(0);
+  }
+
+  .articlesSec.active {
+    opacity: 1;
   }
   .articlesSec article {
     width: 30%;
@@ -109,12 +162,15 @@ h3 {
     padding: 0 20px;
     overflow: hidden;
     border-radius: 5px;
+    -webkit-box-shadow: 10px 11px 20px 3px rgba(0, 0, 0, 0.45);
+    -moz-box-shadow: 10px 11px 20px 3px rgba(0, 0, 0, 0.45);
+    box-shadow: 10px 11px 20px 3px rgba(0, 0, 0, 0.45);
   }
   .sectionTitle {
-    margin-top: 20px;
-    margin-bottom: 20px;
+    margin-top: 30px;
+    margin-bottom: 40px;
     padding-left: 50px;
-    color: gray;
+    /* color: gray; */
     font-size: 60px;
   }
 
@@ -124,5 +180,33 @@ h3 {
   }
   .articlesSec article p {
     font-size: 30px;
+  }
+  .technologies div {
+    padding-top: 0px;
+    padding-bottom: 0px;
+    padding-right: 0px;
+    padding-left: 0px;
+    flex-direction: row;
+    height: 400px;
+    margin-bottom: 30px;
+  }
+
+  .technologies > div {
+    -webkit-box-shadow: 6px 5px 19px 5px rgba(0, 0, 0, 0.49);
+    -moz-box-shadow: 6px 5px 19px 5px rgba(0, 0, 0, 0.49);
+    box-shadow: 6px 5px 19px 5px rgba(0, 0, 0, 0.49);
+    padding: 20px 10px;
+    overflow: hidden;
+  }
+  .technologies div .imageWrapper {
+    width: 50%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .technologies div .imageWrapper img {
+    width: auto;
+    height: 100%;
   }
 }
